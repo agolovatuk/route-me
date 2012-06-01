@@ -88,4 +88,9 @@
 // tileDepth defaults to zero. if tiles have no alpha, set this higher, 3 or so, to make zooming smoother
 @property (assign, readwrite) short zoom, tileDepth;
 @property (readonly) BOOL fullyLoaded;
+
+/*
+ * Added by me
+ */
+@property (readonly,retain)NSMutableSet *images;
 @end

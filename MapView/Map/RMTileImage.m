@@ -33,10 +33,15 @@
 #import "RMTileCache.h"
 #import "RMPixel.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIIMageExpansion.h"
+#import "MapView.h"
+#import "CurrentSettings.h"
+#import "DBManager.h"
 
 @implementation RMTileImage
 
 @synthesize tile, layer, lastUsedTime;
+@synthesize bufImage;
 
 - (id) initWithTile: (RMTile)_tile
 {
@@ -84,6 +89,10 @@
 
 	[layer release]; layer = nil;
 	[lastUsedTime release]; lastUsedTime = nil;
+    if(bufImage !=nil)
+    {
+        [bufImage release]; bufImage = nil;
+    }
 	
 	[super dealloc];
 }
@@ -144,9 +153,55 @@
 
 - (void)updateImageUsingImage: (UIImage*) rawImage
 {
-	layer.contents = (id)[rawImage CGImage];
-//	[self animateIn];
+	// NSLog(@">>>>>>>>>>>>>>>tile: z:%hi x: %d y :%d",tile.zoom, tile.x, tile.y);
+    
+    UIImage *image = rawImage;
+    if([MapView getMapType] == DARK_BLUE_MAP)
+    {
+        image =[[[rawImage grayscale] convertImageToNegative] colorFilter:65.0/94.0 g:65.0/94.0 b:1.0];//[[[rawImage grayscale] convertImageToNegative] colorFilter:65.0/94.0 g:65.0/94.0 b:1.0];
+    }
+    else if([MapView getMapType]==LIGHT_MAP)
+    {
+        image =[[rawImage grayscale] colorFilter:172.0/190.0 g:178.0/190.0 b:199.0/190.0];//[[rawImage grayscale] colorFilter:169.0/190.0 g:178.0/190.0 b:199.0/190.0 ];
+    }    
+    
+    if([CurrentSettings getPopulationDensity])
+    {
+        bufImage = [image retain];
+    }
+    else
+    {
+        layer.contents = (id)[image CGImage];
+    }
+    
+    if([CurrentSettings getPopulationDensity])
+    {
+        //load pop density image for zoom heppend
+        [[DBManager dbManager] getimageForTileImage:self];
+        //return;
+    }
+    //NSLog(@"layer content: %@",[[layer.contents class] className]);
+    //	[self animateIn];
 }
+
+/*
+ * Added by me
+ */
+-(void)setData:(NSData*)data
+{
+    UIImage *poDensImage = [UIImage imageWithData:data];
+    UIImage *back = [UIImage imageWithCGImage:(CGImageRef)layer.contents];
+    layer.contents= nil;
+    UIImage *image = [back blendImageWith:poDensImage];
+    layer.contents = (id)[image CGImage];
+}
+
+-(void)setImage:(UIImage*)image
+{
+    layer.contents = (id)[image CGImage];
+    [bufImage release]; bufImage = nil;
+}
+
 
 - (BOOL)isLoaded
 {

@@ -38,6 +38,10 @@
 @implementation RMTileImageSet
 
 @synthesize delegate, tileDepth;
+/*
+ * Added by me
+ */
+@synthesize images;
 
 -(id) initWithDelegate: (id) _delegate
 {

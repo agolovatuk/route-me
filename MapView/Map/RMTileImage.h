@@ -54,7 +54,13 @@ typedef NSImage UIImage;
 	/// one UIView. Might see some interesting crashes if you have two RMMapViews using the same tile source.
 	// Only used when appropriate
 	CALayer *layer;
+    
+    /*
+     * Added by me
+     */
+    UIImage *bufImage;
 }
+@property (nonatomic,assign)UIImage *bufImage;
 
 - (id) initWithTile: (RMTile)tile;
 
@@ -88,5 +94,11 @@ typedef NSImage UIImage;
 @property (readonly, assign) RMTile tile;
 @property (readonly) CALayer *layer;
 @property (readonly) NSDate *lastUsedTime;
+
+/*
+ * Added by me
+ */
+-(void)setData:(NSData*)data;
+-(void)setImage:(UIImage*)image;
 
 @end
