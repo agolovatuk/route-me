@@ -128,7 +128,10 @@ typedef struct {
         CGFloat rotation;
     float screenScale;
 	
-@private
+/*
+* Added by me, for make it bounced in child class
+*/
+//@private
    	BOOL _delegateHasBeforeMapMove;
 	BOOL _delegateHasAfterMapMove;
 	BOOL _delegateHasBeforeMapZoomByFactor;

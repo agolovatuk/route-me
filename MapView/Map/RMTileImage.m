@@ -165,7 +165,7 @@
         image =[[rawImage grayscale] colorFilter:172.0/190.0 g:178.0/190.0 b:199.0/190.0];//[[rawImage grayscale] colorFilter:169.0/190.0 g:178.0/190.0 b:199.0/190.0 ];
     }    
     
-    if([CurrentSettings getPopulationDensity])
+    if([CurrentSettings getPopulationDensity] && [MapView isMainMap])
     {
         bufImage = [image retain];
     }
@@ -174,7 +174,7 @@
         layer.contents = (id)[image CGImage];
     }
     
-    if([CurrentSettings getPopulationDensity])
+    if([CurrentSettings getPopulationDensity] && [MapView isMainMap])
     {
         //load pop density image for zoom heppend
         [[DBManager dbManager] getimageForTileImage:self];

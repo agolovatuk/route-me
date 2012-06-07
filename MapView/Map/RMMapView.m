@@ -523,7 +523,7 @@
 		}
 	}
 
-	[self delayedResumeExpensiveOperations];
+	[self delayedResumeExpensiveOperations];    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -574,8 +574,10 @@
         [self delayedResumeExpensiveOperations];
 	}
     
-	
-	if (touch.tapCount == 1) 
+	/*
+     * Added by me, after ==1
+     */
+	if (touch.tapCount == 1 || touch.tapCount == 0) 
 	{
 		if(lastGesture.numTouches == 0)
 		{

@@ -148,6 +148,35 @@
                   screenScale:theScreenScale];
 }
 
+/*
+ * Added by me
+ */
+- (id)initWithView:(UIView*)view
+		tilesource:(id<RMTileSource>)newTilesource
+	  centerLatLon:(CLLocationCoordinate2D)initialCenter
+		 zoomLevel:(float)initialZoomLevel
+	  maxZoomLevel:(float)maxZoomLevel
+	  minZoomLevel:(float)minZoomLevel
+   backgroundImage:(UIImage *)backgroundImage
+{
+    float scale = 1.0;
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
+    {
+        scale = [[[UIScreen mainScreen] valueForKey:@"scale"] floatValue];
+    }
+    
+    //NSLog(@">>>>>>>>>>>>> scale: %f minZoom: %f", scale, minZoomLevel);
+    
+    return [self initWithView:view
+				   tilesource:newTilesource
+				 centerLatLon:initialCenter
+					zoomLevel:initialZoomLevel
+				 maxZoomLevel:maxZoomLevel
+				 minZoomLevel:minZoomLevel
+			  backgroundImage:nil
+                  screenScale:scale];
+}
+
 - (id)initWithView:(UIView*)newView
 		tilesource:(id<RMTileSource>)newTilesource
 	  centerLatLon:(CLLocationCoordinate2D)initialCenter
@@ -885,7 +914,15 @@
 
 -(float) zoom
 {
-        return [mercatorToTileProjection calculateZoomFromScale:[self scaledMetersPerPixel]];
+    /*
+     * Added by me
+     */
+    return [mercatorToTileProjection calculateZoomFromScale:[mercatorToScreenProjection metersPerPixel]];
+    
+    /*
+     * Was in master version
+     */
+    //return [mercatorToTileProjection calculateZoomFromScale:[self scaledMetersPerPixel]];
 }
 
 /// if #zoom is outside of range #minZoom to #maxZoom, zoom level is clamped to that range.
@@ -895,8 +932,16 @@
         zoom = (zoom < minZoom) ? minZoom : zoom;
 
         float scale = [mercatorToTileProjection calculateScaleFromZoom:zoom];
+     
+    /*
+     * Added by me
+     */
+    [self setMetersPerPixel:scale];
 
-        [self setScaledMetersPerPixel:scale];
+    /*
+     * Was in master version
+     */
+    //[self setScaledMetersPerPixel:scale];
 }
 
 -(RMTileImageSet*) imagesOnScreen
