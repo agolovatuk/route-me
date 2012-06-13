@@ -156,6 +156,7 @@ typedef struct {
 	RMProjectedPoint NEconstraint, SWconstraint;
 	
 	BOOL _contentsIsSet; // "contents" must be set, but is initialized lazily to allow apps to override defaults in -awakeFromNib
+    CGSize _lastMoveDelta;
 }
 
 /// Any other functionality you need to manipulate the map you can access through this
