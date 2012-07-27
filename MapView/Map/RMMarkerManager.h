@@ -41,7 +41,6 @@
 
 - (id)initWithContents:(RMMapContents *)mapContents;
 
-- (void)addMarker:(RMMarker*)marker atProjectedPoint:(RMProjectedPoint)projectedPoint atOverlayIndex:(unsigned)index;
 - (void)addMarker:(RMMarker *)marker atProjectedPoint:(RMProjectedPoint)projectedPoint;
 - (void) addMarker: (RMMarker*)marker AtLatLong:(CLLocationCoordinate2D)point;
 - (void) removeMarkers;

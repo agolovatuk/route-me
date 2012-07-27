@@ -1456,7 +1456,6 @@
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../../**";
 			};
 			name = Debug;
 		};
@@ -1476,7 +1475,6 @@
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../../**";
 			};
 			name = Release;
 		};

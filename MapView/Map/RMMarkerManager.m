@@ -56,18 +56,15 @@
 #pragma mark 
 #pragma mark Adding / Removing / Displaying Markers
 
-/// place the (newly created) marker onto the map at projected point and overlay position
--(void) addMarker:(RMMarker*)marker atProjectedPoint:(RMProjectedPoint)projectedPoint atOverlayIndex:(unsigned)index
-{
-	[marker setAffineTransform:rotationTransform];
-	[marker setProjectedLocation:projectedPoint];
-	[marker setPosition:[[contents mercatorToScreenProjection] projectXYPoint:projectedPoint]];
-	[[contents overlay] insertSublayer:marker atIndex:index];
-}
-
 /// place the (new created) marker onto the map at projected point and take ownership of it
 - (void)addMarker:(RMMarker *)marker atProjectedPoint:(RMProjectedPoint)projectedPoint {
+
+	// only set the AffineTransform if the marker has rotation enabled
+	if (marker.enableRotation) {
 	[marker setAffineTransform:rotationTransform];
+	} else {
+		[marker setAffineTransform:CGAffineTransformMakeRotation(0.0f)];
+	}
 	[marker setProjectedLocation:projectedPoint];
 	[marker setPosition:[[contents mercatorToScreenProjection] projectXYPoint:projectedPoint]];
 	[[contents overlay] addSublayer:marker];
@@ -196,7 +193,12 @@
 
   for (RMMarker *marker in [self markers]) 
   {
+	  // only apply rotation if the marker has it enabled
+	  if (marker.enableRotation) {
 	  [marker setAffineTransform:rotationTransform];
+	  } else {
+		  [marker setAffineTransform:CGAffineTransformMakeRotation(0.0f)];
+	  }
   }
 }
 
