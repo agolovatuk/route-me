@@ -562,8 +562,7 @@
 			CGPoint prevLocation = [touch previousLocationInView:self];
 			CGPoint currLocation = [touch locationInView:self];
 			CGSize touchDelta = CGSizeMake(currLocation.x - prevLocation.x, currLocation.y - prevLocation.y);
-            //NSLog(@"<<<<<<<<<<<<<<  Touch ended _lastMoveDelta: %@", NSStringFromCGSize(_lastMoveDelta));
-            // NSLog(@">>>>>>>>>>>>>  Touch ended sqrt : %f",sqrtf(powf(_lastMoveDelta.width, 2.f) + powf(_lastMoveDelta.height, 2.f)));
+
             /*
              * make map less sensitive for toch end - fesed thes sometimes map move after user just up finger
              */
