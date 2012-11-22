@@ -9,9 +9,9 @@
 #endif
 
 #if DEBUG
-#define RMLog(args...)    NSLog(@"%@", [NSString stringWithFormat: args])
-#define LogMethod() NSLog(@"logged method call: -[%@ %@] (line %d)", self, NSStringFromSelector(_cmd), __LINE__)
-#define WarnDeprecated() NSLog(@"***** WARNING: deprecated method call: -[%@ %@] (line %d)", self, NSStringFromSelector(_cmd), __LINE__)
+#define RMLog(args...)    //NSLog(@"%@", [NSString stringWithFormat: args])
+#define LogMethod() //NSLog(@"logged method call: -[%@ %@] (line %d)", self, NSStringFromSelector(_cmd), __LINE__)
+#define WarnDeprecated() //NSLog(@"***** WARNING: deprecated method call: -[%@ %@] (line %d)", self, NSStringFromSelector(_cmd), __LINE__)
 #else  
 // DEBUG not defined:
 

@@ -84,7 +84,6 @@
 
 	[layer release]; layer = nil;
 	[lastUsedTime release]; lastUsedTime = nil;
-	
 	[super dealloc];
 }
 
@@ -144,8 +143,8 @@
 
 - (void)updateImageUsingImage: (UIImage*) rawImage
 {
-	layer.contents = (id)[rawImage CGImage];
-//	[self animateIn];
+    UIImage *image = rawImage;
+    layer.contents = (id)[image CGImage];
 }
 
 - (BOOL)isLoaded

@@ -24,6 +24,7 @@
 // CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
+
 #import "RMGlobalConstants.h"
 #import "RMMapContents.h"
 
@@ -46,11 +47,21 @@
 #import "RMMarkerManager.h"
 
 #import "RMMarker.h"
+#import "RMCircle.h"
 
 
+@interface RMMapContents ()
+// non-public extensions
 
+@property (nonatomic, retain) CLLocationManager* locationManager;
+
+
+@end
 
 @interface RMMapContents (PrivateMethods)
+@property (nonatomic, retain) CLLocationManager* locationManager;
+@property (nonatomic, retain) RMCircle*          userLocationAccuracyIndicator;
+@property (nonatomic, retain) RMMarker*          userLocationMarker;
 - (void)animatedZoomStep:(NSTimer *)timer;
 @end
 
@@ -60,11 +71,17 @@
 
 @implementation RMMapContents
 
+@synthesize locationManager;
+
 @synthesize boundingMask;
 @synthesize minZoom;
 @synthesize maxZoom;
 @synthesize screenScale;
 @synthesize markerManager;
+
+@synthesize userLocationAccuracyIndicator;
+@synthesize userLocationMarker;
+
 
 #pragma mark --- begin constants ----
 #define kZoomAnimationStepTime 0.03f
@@ -83,7 +100,7 @@
 	here.longitude = kDefaultInitialLongitude;
 	
 	return [self initWithView:view
-				   tilesource:[[RMOpenStreetMapSource alloc] init]
+				   tilesource:[[[RMOpenStreetMapSource alloc] init] autorelease]
 				 centerLatLon:here
 	  			    zoomLevel:kDefaultInitialZoomLevel
 				 maxZoomLevel:kDefaultMaximumZoomLevel
@@ -99,7 +116,7 @@
 	here.longitude = kDefaultInitialLongitude;
 	
 	return [self initWithView:view
-				   tilesource:[[RMOpenStreetMapSource alloc] init]
+				   tilesource:[[[RMOpenStreetMapSource alloc] init] autorelease]
 				 centerLatLon:here
 	  			    zoomLevel:kDefaultInitialZoomLevel
 				 maxZoomLevel:kDefaultMaximumZoomLevel
@@ -129,6 +146,38 @@
 				 minZoomLevel:kDefaultMinimumZoomLevel
 			  backgroundImage:nil
                   screenScale:theScreenScale];
+}
+
+/*
+ * Added by me
+ */
+- (id)initWithView:(UIView*)view
+		tilesource:(id<RMTileSource>)newTilesource
+	  centerLatLon:(CLLocationCoordinate2D)initialCenter
+		 zoomLevel:(float)initialZoomLevel
+	  maxZoomLevel:(float)maxZoomLevel
+	  minZoomLevel:(float)minZoomLevel
+   backgroundImage:(UIImage *)backgroundImage
+{
+    float scale = 1.0;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
+        {
+            scale = [[[UIScreen mainScreen] valueForKey:@"scale"] floatValue];
+        }
+    }
+    
+   // NSLog(@">>>>>>>>>>>>> scale: %f minZoom: %f", scale, minZoomLevel);
+    
+    return [self initWithView:view
+				   tilesource:newTilesource
+				 centerLatLon:initialCenter
+					zoomLevel:initialZoomLevel
+				 maxZoomLevel:maxZoomLevel
+				 minZoomLevel:minZoomLevel
+			  backgroundImage:nil
+                  screenScale:scale];
 }
 
 - (id)initWithView:(UIView*)newView
@@ -190,6 +239,9 @@
 	[theOverlay release];
 	
 	markerManager = [[RMMarkerManager alloc] initWithContents:self];
+    // setup the location manager so that it will report all location updates in case it is activated
+    [self setLocationManager:[[[CLLocationManager alloc] init] autorelease]];
+    [[self locationManager] setDelegate:self];
 	
 	[newView setNeedsDisplay];
 	[[NSNotificationCenter defaultCenter] addObserver:self 
@@ -277,6 +329,10 @@
 	[theOverlay release];
 	
 	markerManager = [[RMMarkerManager alloc] initWithContents:self];
+    // setup the location manager so that it will report all location updates in case it is activated;
+    // if there is already a location manager active make sure that it stops before another one is going to be activated
+    [self setLocationManager:[[[CLLocationManager alloc] init] autorelease]];
+    [[self locationManager] setDelegate:self];
 	
 	[view setNeedsDisplay];
 	[[NSNotificationCenter defaultCenter] addObserver:self 
@@ -317,7 +373,12 @@
 	[self setOverlay:nil];
 	[self setBackground:nil];
 	[layer release];
-	[markerManager release];
+	[markerManager release];    
+    
+    [self setLocationManager:nil];
+    [self setUserLocationAccuracyIndicator:nil];
+    [self setUserLocationMarker:nil];
+    
 	[super dealloc];
 }
 
@@ -856,7 +917,15 @@
 
 -(float) zoom
 {
-        return [mercatorToTileProjection calculateZoomFromScale:[self scaledMetersPerPixel]];
+    /*
+     * Added by me
+     */
+    return [mercatorToTileProjection calculateZoomFromScale:[mercatorToScreenProjection metersPerPixel]];
+    
+    /*
+     * Was in master version
+     */
+    //return [mercatorToTileProjection calculateZoomFromScale:[self scaledMetersPerPixel]];
 }
 
 /// if #zoom is outside of range #minZoom to #maxZoom, zoom level is clamped to that range.
@@ -866,8 +935,16 @@
         zoom = (zoom < minZoom) ? minZoom : zoom;
 
         float scale = [mercatorToTileProjection calculateScaleFromZoom:zoom];
+     
+    /*
+     * Added by me
+     */
+    [self setMetersPerPixel:scale];
 
-        [self setScaledMetersPerPixel:scale];
+    /*
+     * Was in master version
+     */
+    //[self setScaledMetersPerPixel:scale];
 }
 
 -(RMTileImageSet*) imagesOnScreen
@@ -1116,5 +1193,107 @@ static BOOL _performExpensiveOperations = YES;
 - (BOOL)fullyLoaded {
 	return imagesOnScreen.fullyLoaded;
 }
+
+#pragma mark User location handling
+-(BOOL) showsUserLocation
+{
+    return showsUserLocation;
+}
+
+-(void) setShowsUserLocation:(BOOL)newValue
+{
+    if (showsUserLocation != newValue)
+    {
+        showsUserLocation = newValue;
+        if (showsUserLocation)
+            [locationManager startUpdatingLocation];
+        else
+        {
+            [locationManager stopUpdatingLocation];
+            // get rid of elements that are used to show the user's location
+            [userLocationAccuracyIndicator removeFromSuperlayer];
+            [[self markerManager] removeMarker:userLocationMarker];
+            [self setUserLocationAccuracyIndicator:nil];
+            [self setUserLocationMarker:nil];
+        }
+    }
+}
+
+-(BOOL) isUserLocationVisible
+{
+    CLLocation* currentUserLocation = [self userLocation];
+    
+    
+    if ((currentUserLocation != nil) && ([currentUserLocation horizontalAccuracy] >= 0.0)) // do we have to check against zero? Let's do it because nowhere
+    {                                                                                      // is documented that a zero accuracy may not occur (quite unrealistic though)
+        double           projectedRadius              = [currentUserLocation horizontalAccuracy]/cos([currentUserLocation coordinate].latitude*(M_PI/180.0)); // accuracy radius has to be stretched
+        RMProjectedPoint projectedCurrentUserLocation = [[self projection] latLongToPoint:[currentUserLocation coordinate]];
+        RMProjectedRect  mapProjectedBounds           = [self projectedBounds];
+        
+        return ((projectedCurrentUserLocation.northing+projectedRadius >= mapProjectedBounds.origin.northing) &&
+                (projectedCurrentUserLocation.northing                 <= mapProjectedBounds.origin.northing+mapProjectedBounds.size.height) &&
+                (projectedCurrentUserLocation.easting+projectedRadius >= mapProjectedBounds.origin.easting) &&
+                (projectedCurrentUserLocation.easting                 <= mapProjectedBounds.origin.easting+mapProjectedBounds.size.width));
+    }
+    else
+        return NO;
+}
+
+-(CLLocation*) userLocation
+{
+    return [locationManager location];
+}
+
+#pragma mark CLLocationManagerDelegate protocol
+-(void) locationManager:(CLLocationManager*)manager didFailWithError:(NSError*)error
+{
+    RMLog(@"Location manager failed with error: %@",[error localizedDescription]);
+}
+
+-(void) locationManager:(CLLocationManager*)manager didUpdateToLocation:(CLLocation*)newLocation fromLocation:(CLLocation*)oldLocation
+{
+    if(!CLLocationCoordinate2DIsValid(newLocation.coordinate))
+        return;
+    
+    if (userLocationAccuracyIndicator == nil)
+    {
+        RMCircle* circle = [[RMCircle alloc] initWithContents:self radiusInMeters:[newLocation horizontalAccuracy] latLong:[newLocation coordinate]];
+        
+        [circle setLineWidthInPixels:3.0f];
+        //to not show accuracy
+        [circle setLineColor:[UIColor clearColor]];
+        [circle setFillColor:[UIColor clearColor]];
+
+//        [circle setLineColor:[UIColor colorWithRed:0.0f green:1.0f blue:1.0f alpha:0.6f]];
+//        [circle setFillColor:[UIColor colorWithRed:0.0f green:0.4f blue:1.0f alpha:0.1f]];
+        [self setUserLocationAccuracyIndicator:circle];
+        // add the user location's accuracy indicator as the first layer
+        [[self overlay] insertSublayer:circle atIndex:0];
+        [circle release];
+    }
+    else
+    {
+        [userLocationAccuracyIndicator moveToLatLong:[newLocation coordinate]];
+        [userLocationAccuracyIndicator setRadiusInMeters:[newLocation horizontalAccuracy]];
+    }
+    if (userLocationMarker == nil)
+    {
+        RMMarker* marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"blue_dot.png"] anchorPoint:CGPointMake(0.5f,0.5f)];
+        
+        [self setUserLocationMarker:marker];
+        // add the user location's marker as the second layer
+        [[self markerManager] addMarker:marker atProjectedPoint:[[self projection] latLongToPoint:[newLocation coordinate]] atOverlayIndex:MIN(1,[[overlay sublayers] count])];
+        [marker release];
+    }
+    else
+        [[self markerManager] moveMarker:userLocationMarker AtLatLon:[newLocation coordinate]];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+	[dict setValue:newLocation forKey:@"newLocation"];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"actionAsynchronous_UpdateLocation" object:nil userInfo:dict];
+	[dict removeAllObjects];
+	[dict release];
+}
+
 
 @end

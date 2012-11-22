@@ -38,6 +38,10 @@
 @implementation RMTileImageSet
 
 @synthesize delegate, tileDepth;
+/*
+ * Added by me
+ */
+@synthesize images;
 
 -(id) initWithDelegate: (id) _delegate
 {
@@ -476,6 +480,8 @@
 	short currentZoom = rect.origin.tile.zoom;
 	RMTile wrappedTile;
 	id<RMMercatorToTileProjection> proj = [tileSource mercatorToTileProjection];
+    
+    //NSLog(@">>>>> tile1111: %d %d",rect.origin.tile.x, rect.origin.tile.y);
 
 	rect = RMTileRectRound(rect);
 	minX = rect.origin.tile.x;
@@ -526,6 +532,7 @@
 			y >>= dz;
 		}
         
+        //NSLog(@">>>>> tile: %d %d [zoomedMinX: %d  zoomedMaxX: %d] [zoomedMinY: %d zoomedMaxY: %d]",tile.x, tile.y,zoomedMinX,zoomedMaxX,zoomedMinY,zoomedMaxY);
 		if (y >= zoomedMinY && y <= zoomedMaxY)
 		{
 			if (zoomedMinX <= zoomedMaxX)
@@ -540,8 +547,19 @@
 			}
 
 		}
+        
+        /*
+         * Added by me hac for zoom =2
+         */
+        
 		// if haven't continued, tile is outside of rect
+        if(tileZoom == 2 || tileZoom == 1 )
+        {
+            // NSLog(@"RETURN");
+            return;
+        }
 		[self removeTile:tile];
+        //NSLog(@">>>>>remove tile: %d %d",tile.x, tile.y);
 	}
 }
 

@@ -33,28 +33,13 @@
 #import "RMProjection.h"
 #import "RMNotifications.h"
 
-@interface RMPath () {
-	RMProjectedPoint projectedLocation;
-	
-    CGFloat *_lineDashLengths;
-    CGFloat *_scaledLineDashLengths;
-    size_t _lineDashCount;
-    CGFloat lineDashPhase;
-    
-    CGMutablePathRef path;
-    
-	RMMapContents *mapContents;
-    
-    CGRect originalContentsRect;
-    BOOL redrawPending;
-}
-
+@interface RMPath ()
 - (void)addPointToXY:(RMProjectedPoint) point withDrawing:(BOOL)isDrawing;
 - (void)recalculateGeometry;
 @end
 
 @implementation RMPath
-@synthesize lineCap, lineJoin, lineWidth, lineColor, fillColor, scaleLineWidth, shadowBlur, shadowOffset, shadowColor, lineDashPhase, lineDashLengths, scaleLineDash, projectedLocation, enableDragging, enableRotation;
+@synthesize lineWidth, lineColor, fillColor, scaleLineWidth, lineDashPhase, lineDashLengths, scaleLineDash, projectedLocation, enableDragging, enableRotation;
 @dynamic CGPath, projectedBounds;
 
 - (id) initWithContents: (RMMapContents*)aContents {
@@ -66,8 +51,6 @@
 	
     // Defaults
 	lineWidth = 4.0;
-	lineCap = kCGLineCapRound;
-	lineJoin = kCGLineJoinRound;
 	scaleLineWidth = NO;
 	enableDragging = YES;
 	enableRotation = YES;
@@ -77,9 +60,6 @@
     _lineDashLengths = NULL;
     _scaledLineDashLengths = NULL;
     lineDashPhase = 0.0;
-    shadowBlur = 0.0;
-	shadowOffset = CGSizeMake(0, 0);
-    self.shadowColor = [UIColor clearColor];
     
     self.masksToBounds = YES;
     
@@ -108,10 +88,8 @@
 -(void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 	CGPathRelease(path);
-    [lineColor release];
-    [fillColor release];
-    [shadowColor release];
-    if ( _lineDashLengths ) free(_lineDashLengths);
+    self.lineColor = nil;
+    self.fillColor = nil;
 	[super dealloc];
 }
 
@@ -191,20 +169,6 @@
     }
 }
 
--(void)setLineCap:(CGLineCap)theLineCap {
-    if ( theLineCap != lineCap ) {
-        lineCap = theLineCap;
-        [self setNeedsDisplay];
-    }
-}
-
--(void)setLineJoin:(CGLineJoin)theLineJoin {
-    if ( theLineJoin != lineJoin ) {
-        lineJoin = theLineJoin;
-        [self setNeedsDisplay];
-    }
-}
-
 - (void)setLineColor:(UIColor *)aLineColor {
     if (lineColor != aLineColor) {
         [lineColor release];
@@ -218,29 +182,6 @@
         [fillColor release];
         fillColor = [aFillColor retain];
 		[self setNeedsDisplay];
-    }
-}
-
--(void)setShadowBlur:(CGFloat)theShadowBlur {
-    if ( shadowBlur != theShadowBlur ) {
-        shadowBlur = theShadowBlur;
-        [self setNeedsDisplay];
-    }
-}
-
--(void)setShadowOffset:(CGSize)theShadowOffset {
-    if ( !CGSizeEqualToSize(shadowOffset, theShadowOffset) ) {
-        shadowOffset = theShadowOffset;
-        [self setNeedsDisplay];
-    }
-}
-
--(void)setShadowColor:(UIColor *)theShadowColor {
-    if ( ![shadowColor isEqual:theShadowColor] ) {
-        [theShadowColor retain];
-        [shadowColor release];
-        shadowColor = theShadowColor;
-        [self setNeedsDisplay];
     }
 }
 
@@ -276,6 +217,7 @@
 
 - (void)recalculateGeometry {
 	RMMercatorToScreenProjection *projection = [mapContents mercatorToScreenProjection];
+	const float outset = 100.0f;
 	
 	float scaledLineWidth = lineWidth;
 	if ( !scaleLineWidth ) {
@@ -298,8 +240,6 @@
     CGRect screenBounds = [mapContents screenBounds];
     CGPoint myPosition = [projection projectXYPoint: projectedLocation];
     CGRect clippedBounds = pixelBounds;
-    CGFloat outset = MAX(screenBounds.size.width, screenBounds.size.height);
-
     clippedBounds.origin.x += myPosition.x; clippedBounds.origin.y += myPosition.y;
     clippedBounds = CGRectIntersection(clippedBounds, CGRectInset(screenBounds, -outset, -outset));
     clippedBounds.origin.x -= myPosition.x; clippedBounds.origin.y -= myPosition.y;
@@ -371,18 +311,14 @@
 	CGContextAddPath(theContext, path); 
 	
 	CGContextSetLineWidth(theContext, scaledLineWidth);
-    CGContextSetLineCap(theContext, lineCap);
-	CGContextSetLineJoin(theContext, lineJoin);
+	CGContextSetLineCap(theContext, kCGLineCapRound);
+	CGContextSetLineJoin(theContext, kCGLineJoinRound);	
     if(_lineDashLengths){
         CGContextSetLineDash(theContext, lineDashPhase, dashLengths, _lineDashCount);
     }
     
     if ( lineColor ) {
         CGContextSetStrokeColorWithColor(theContext, [lineColor CGColor]);
-    }
-    
-    if ( ![shadowColor isEqual:[UIColor clearColor]] ) {
-        CGContextSetShadowWithColor(theContext, shadowOffset, shadowBlur, [shadowColor CGColor]);
     }
     
     if ( fillColor ) {

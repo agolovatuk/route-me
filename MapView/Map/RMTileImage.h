@@ -89,4 +89,5 @@ typedef NSImage UIImage;
 @property (readonly) CALayer *layer;
 @property (readonly) NSDate *lastUsedTime;
 
+
 @end

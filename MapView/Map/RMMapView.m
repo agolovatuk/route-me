@@ -523,7 +523,7 @@
 		}
 	}
 
-	[self delayedResumeExpensiveOperations];
+	[self delayedResumeExpensiveOperations];    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -562,8 +562,15 @@
 			CGPoint prevLocation = [touch previousLocationInView:self];
 			CGPoint currLocation = [touch locationInView:self];
 			CGSize touchDelta = CGSizeMake(currLocation.x - prevLocation.x, currLocation.y - prevLocation.y);
-			[self startDecelerationWithDelta:touchDelta];
-            decelerating = YES;
+
+            /*
+             * make map less sensitive for toch end - fesed thes sometimes map move after user just up finger
+             */
+            if(sqrtf(powf(_lastMoveDelta.width, 2.f) + powf(_lastMoveDelta.height, 2.f)) > 2)
+            {
+                [self startDecelerationWithDelta:touchDelta];
+                decelerating = YES;
+            }
 		}
 	}
 	
@@ -574,8 +581,10 @@
         [self delayedResumeExpensiveOperations];
 	}
     
-	
-	if (touch.tapCount == 1) 
+	/*
+     * Added by me, after ==1
+     */
+	if (touch.tapCount == 1 || touch.tapCount == 0) 
 	{
 		if(lastGesture.numTouches == 0)
 		{
@@ -668,6 +677,10 @@
 		CGSize delta;
 		delta.width = newGesture.center.x - lastGesture.center.x;
 		delta.height = newGesture.center.y - lastGesture.center.y;
+        /*
+         * keep last delta to check it in touchesEnded function
+         */
+        _lastMoveDelta = delta;
 		
 		if (enableZoom && newGesture.numTouches > 1)
 		{
@@ -722,7 +735,11 @@
 	}
 
 	// avoid calling delegate methods? design call here
-	[self.contents moveBy:_decelerationDelta];
+    /*
+     * call moveBy of mapView not of contenst, to check map bounds during moving
+     */
+    [self moveBy:_decelerationDelta];
+	//[self.contents moveBy:_decelerationDelta];
 
 	_decelerationDelta.width *= [self decelerationFactor];
 	_decelerationDelta.height *= [self decelerationFactor];

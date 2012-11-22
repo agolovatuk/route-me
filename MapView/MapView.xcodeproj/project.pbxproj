@@ -3,21 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		2B2BD43A0F79AA1B00B8B9A7 /* Doxygen-Documentation */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 2B2BD4400F79AA3200B8B9A7 /* Build configuration list for PBXAggregateTarget "Doxygen-Documentation" */;
-			buildPhases = (
-				2B2BD4390F79AA1B00B8B9A7 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = "Doxygen-Documentation";
-			productName = "Doxygen documentation";
-		};
 		386676D40F6B73AC00C56B17 /* MapView-framework */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 386676DE0F6B73D000C56B17 /* Build configuration list for PBXAggregateTarget "MapView-framework" */;
@@ -34,13 +23,6 @@
 /* Begin PBXBuildFile section */
 		090FE3140ECD71A500035FBC /* RMTilesUpdateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 090FE3130ECD71A500035FBC /* RMTilesUpdateDelegate.h */; };
 		126693040EB76C0B00E002D5 /* RMConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 126692A00EB75C0A00E002D5 /* RMConfiguration.m */; };
-		17157D88133BBC8300E28941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		17157D89133BBC8300E28941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		17157D8A133BBC8300E28941 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		17157D90133BBC8300E28941 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17157D8E133BBC8300E28941 /* InfoPlist.strings */; };
-		17157D99133BBCEF00E28941 /* RMFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17157D80133BBAD800E28941 /* RMFoundationTests.m */; };
-		17157D9A133BBD0500E28941 /* RMFoundation.c in Sources */ = {isa = PBXBuildFile; fileRef = 23A0AAE80EB90A99003A4521 /* RMFoundation.c */; };
-		17157D9B133BBD0700E28941 /* RMFoundation.c in Sources */ = {isa = PBXBuildFile; fileRef = 23A0AAE80EB90A99003A4521 /* RMFoundation.c */; };
 		175701DE1323C2E900A5D314 /* NSUserDefaults+RouteMe.h in Headers */ = {isa = PBXBuildFile; fileRef = 175701DC1323C2E900A5D314 /* NSUserDefaults+RouteMe.h */; };
 		175701DF1323C2E900A5D314 /* NSUserDefaults+RouteMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 175701DD1323C2E900A5D314 /* NSUserDefaults+RouteMe.m */; };
 		17F02BB11319BA4B00260C6B /* RouteMe.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F02BB01319BA4B00260C6B /* RouteMe.h */; };
@@ -49,73 +31,15 @@
 		23A0ABAA0EB923AF003A4521 /* RMLatLong.h in Headers */ = {isa = PBXBuildFile; fileRef = 23A0ABA90EB923AF003A4521 /* RMLatLong.h */; };
 		25757F4F1291C8640083D504 /* RMCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = 25757F4D1291C8640083D504 /* RMCircle.h */; };
 		25757F501291C8640083D504 /* RMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 25757F4E1291C8640083D504 /* RMCircle.m */; };
-		25757F521291C8850083D504 /* RMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 25757F4E1291C8640083D504 /* RMCircle.m */; };
 		2599740912EB966400816331 /* RMSpatialCloudMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 2599740712EB966400816331 /* RMSpatialCloudMapSource.h */; };
-		2599740B12EB967600816331 /* RMSpatialCloudMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2599740812EB966400816331 /* RMSpatialCloudMapSource.m */; };
 		2702E97012EB9DB50027A466 /* RMSpatialCloudMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2599740812EB966400816331 /* RMSpatialCloudMapSource.m */; };
-		2B2BADD70FA3B45A00EE37AA /* marker-X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B2BADD60FA3B45A00EE37AA /* marker-X.png */; };
 		2B5682720F68E36000E8DF40 /* RMOpenAerialMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B5682700F68E36000E8DF40 /* RMOpenAerialMapSource.h */; };
 		2B5682730F68E36000E8DF40 /* RMOpenAerialMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5682710F68E36000E8DF40 /* RMOpenAerialMapSource.m */; };
-		2B580E2C0F8D201200D495B2 /* marker-red.png in Resources */ = {isa = PBXBuildFile; fileRef = B8474C6F0EB53A41006A0BC1 /* marker-red.png */; };
-		2B5BDCDB0F8C17A500848078 /* GTMCALayer+UnitTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BDCCC0F8C17A500848078 /* GTMCALayer+UnitTesting.m */; };
-		2B5BDCDC0F8C17A500848078 /* GTMIPhoneUnitTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BDCD00F8C17A500848078 /* GTMIPhoneUnitTestDelegate.m */; };
-		2B5BDCDD0F8C17A500848078 /* GTMIPhoneUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BDCD10F8C17A500848078 /* GTMIPhoneUnitTestMain.m */; };
-		2B5BDCDE0F8C17A500848078 /* GTMNSObject+UnitTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BDCD30F8C17A500848078 /* GTMNSObject+UnitTesting.m */; };
-		2B5BDCDF0F8C17A500848078 /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BDCD50F8C17A500848078 /* GTMSenTestCase.m */; };
-		2B5BDCE00F8C17A500848078 /* GTMSystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BDCD70F8C17A500848078 /* GTMSystemVersion.m */; };
-		2B5BDCE10F8C17A500848078 /* GTMUIKit+UnitTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BDCD90F8C17A500848078 /* GTMUIKit+UnitTesting.m */; };
-		2B8C8A260F8EB855002E8CF3 /* RouteMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8C8A240F8EB855002E8CF3 /* RouteMeTests.m */; };
-		2BEC602C0F8AC6FC008FB858 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B8474B8E0EB40094006A0BC1 /* FMDatabase.m */; };
-		2BEC602D0F8AC6FE008FB858 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8474B900EB40094006A0BC1 /* FMDatabaseAdditions.m */; };
-		2BEC602F0F8AC700008FB858 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B8474B930EB40094006A0BC1 /* FMResultSet.m */; };
-		2BEC60300F8AC70C008FB858 /* RMAbstractMercatorWebSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A967510E8412930031BA75 /* RMAbstractMercatorWebSource.m */; };
-		2BEC60310F8AC70D008FB858 /* RMCachedTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C974C90E8A9C30007D16AD /* RMCachedTileSource.m */; };
-		2BEC60330F8AC70F008FB858 /* RMConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 126692A00EB75C0A00E002D5 /* RMConfiguration.m */; };
-		2BEC60340F8AC712008FB858 /* RMCoreAnimationRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64BE0E80E73F001663B6 /* RMCoreAnimationRenderer.m */; };
-		2BEC60350F8AC713008FB858 /* RMDatabaseCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B8474B990EB40094006A0BC1 /* RMDatabaseCache.m */; };
-		2BEC60360F8AC715008FB858 /* RMFileTileImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64DF0E80E73F001663B6 /* RMFileTileImage.m */; };
-		2BEC60380F8AC71A008FB858 /* RMFractalTileProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64EA0E80E73F001663B6 /* RMFractalTileProjection.m */; };
-		2BEC60390F8AC71C008FB858 /* RMGeoHash.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C12D290F8A86CA00A894D2 /* RMGeoHash.m */; };
-		2BEC603A0F8AC71D008FB858 /* RMLayerCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA92180E9315EC003A9FE6 /* RMLayerCollection.m */; };
-		2BEC603B0F8AC71E008FB858 /* RMMapContents.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C974B70E8A280A007D16AD /* RMMapContents.m */; };
-		2BEC603C0F8AC71F008FB858 /* RMMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F3FC600EA2B382004D8F85 /* RMMapLayer.m */; };
-		2BEC603D0F8AC722008FB858 /* RMMapRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64CB0E80E73F001663B6 /* RMMapRenderer.m */; };
-		2BEC603E0F8AC723008FB858 /* RMMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C9746A0E8A1A50007D16AD /* RMMapView.m */; };
-		2BEC603F0F8AC724008FB858 /* RMMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F3FC630EA2E792004D8F85 /* RMMarker.m */; };
-		2BEC60400F8AC725008FB858 /* RMMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 090C948C0EC23FCD003AEE25 /* RMMarkerManager.m */; };
-		2BEC60430F8AC729008FB858 /* RMMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64D30E80E73F001663B6 /* RMMemoryCache.m */; };
-		2BEC60440F8AC729008FB858 /* RMMercatorToScreenProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64C90E80E73F001663B6 /* RMMercatorToScreenProjection.m */; };
-		2BEC60450F8AC72B008FB858 /* RMOpenAerialMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5682710F68E36000E8DF40 /* RMOpenAerialMapSource.m */; };
-		2BEC60460F8AC72C008FB858 /* RMOpenStreetMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64EE0E80E73F001663B6 /* RMOpenStreetMapSource.m */; };
-		2BEC60470F8AC72E008FB858 /* RMPath.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CEB1C40ED5A3480014C431 /* RMPath.m */; };
-		2BEC60480F8AC72F008FB858 /* RMPixel.c in Sources */ = {isa = PBXBuildFile; fileRef = B83E64B70E80E73F001663B6 /* RMPixel.c */; };
-		2BEC60490F8AC738008FB858 /* RMProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64E40E80E73F001663B6 /* RMProjection.m */; };
-		2BEC604A0F8AC739008FB858 /* RMTile.c in Sources */ = {isa = PBXBuildFile; fileRef = B83E64D70E80E73F001663B6 /* RMTile.c */; };
-		2BEC604B0F8AC73A008FB858 /* RMTileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64D10E80E73F001663B6 /* RMTileCache.m */; };
-		2BEC604C0F8AC73C008FB858 /* RMTileCacheDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = B8474B970EB40094006A0BC1 /* RMTileCacheDAO.m */; };
-		2BEC604E0F8AC73D008FB858 /* RMTileImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64D90E80E73F001663B6 /* RMTileImage.m */; };
-		2BEC604F0F8AC73E008FB858 /* RMTileImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64E10E80E73F001663B6 /* RMTileImageSet.m */; };
-		2BEC60500F8AC73F008FB858 /* RMTileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64C70E80E73F001663B6 /* RMTileLoader.m */; };
-		2BEC60510F8AC740008FB858 /* RMTileProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64DB0E80E73F001663B6 /* RMTileProxy.m */; };
-		2BEC60520F8AC741008FB858 /* RMTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64E60E80E73F001663B6 /* RMTransform.m */; };
-		2BEC60530F8AC742008FB858 /* RMVirtualEarthSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9675D0E84134B0031BA75 /* RMVirtualEarthSource.m */; };
-		2BEC60540F8AC744008FB858 /* RMWebTileImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E64DD0E80E73F001663B6 /* RMWebTileImage.m */; };
-		2BEC60550F8AC745008FB858 /* RMYahooMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FE8E350F72D01B00A11CF0 /* RMYahooMapSource.m */; };
-		2BEC60960F8ACBF1008FB858 /* libProj4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D818500F6F67B90034598B /* libProj4.a */; };
-		2BEC612D0F8ACC1E008FB858 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83E65590E80E7EB001663B6 /* CoreFoundation.framework */; };
-		2BEC612E0F8ACC1E008FB858 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		2BEC612F0F8ACC1E008FB858 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83E65630E80E81C001663B6 /* CoreLocation.framework */; };
-		2BEC61300F8ACC1F008FB858 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		2BEC61310F8ACC21008FB858 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8474BC00EB4019A006A0BC1 /* libsqlite3.dylib */; };
-		2BEC61320F8ACC24008FB858 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83E65680E80E830001663B6 /* QuartzCore.framework */; };
-		2BEC61330F8ACC25008FB858 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		3849889C0F6F758100496293 /* libProj4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D818500F6F67B90034598B /* libProj4.a */; };
 		447420DA1302B2F5004D6E8A /* RMWMSSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 447420D81302B2F5004D6E8A /* RMWMSSource.h */; };
 		447420DB1302B2F5004D6E8A /* RMWMSSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 447420D91302B2F5004D6E8A /* RMWMSSource.m */; };
 		4474211B1302B60A004D6E8A /* RMWMS.h in Headers */ = {isa = PBXBuildFile; fileRef = 447421191302B60A004D6E8A /* RMWMS.h */; };
 		4474211C1302B60A004D6E8A /* RMWMS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4474211A1302B60A004D6E8A /* RMWMS.m */; };
-		46B1C067117653930062018A /* GTMNSNumber+64Bit.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1C066117653930062018A /* GTMNSNumber+64Bit.m */; };
-		46B1C075117653F10062018A /* GTMObjC2Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1C074117653F10062018A /* GTMObjC2Runtime.m */; };
 		96492C400FA8AD3400EBA6D2 /* RMGlobalConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 96492C3F0FA8AD3400EBA6D2 /* RMGlobalConstants.h */; };
 		96FE8E360F72D01B00A11CF0 /* RMYahooMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 96FE8E340F72D01B00A11CF0 /* RMYahooMapSource.h */; };
 		96FE8E370F72D01B00A11CF0 /* RMYahooMapSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FE8E350F72D01B00A11CF0 /* RMYahooMapSource.m */; };
@@ -204,7 +128,6 @@
 		D1437B37122869E400888DAE /* RMDBMapSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D1437B33122869E400888DAE /* RMDBMapSource.h */; };
 		DD55FD1412FB40E000B6FE24 /* RMMBTilesTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DD55FD1212FB40E000B6FE24 /* RMMBTilesTileSource.m */; };
 		DD55FD1512FB40E000B6FE24 /* RMMBTilesTileSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DD55FD1312FB40E000B6FE24 /* RMMBTilesTileSource.h */; };
-		DD55FD1612FB40E000B6FE24 /* RMMBTilesTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DD55FD1212FB40E000B6FE24 /* RMMBTilesTileSource.m */; };
 		DDA3E85613B00D9E004D861C /* RMMapQuestOSMSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA3E85413B00D9E004D861C /* RMMapQuestOSMSource.h */; };
 		DDA3E85713B00D9E004D861C /* RMMapQuestOSMSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3E85513B00D9E004D861C /* RMMapQuestOSMSource.m */; };
 		DDCD58D31406F8A400F59E0D /* RMTileStreamSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DDCD58D11406F8A300F59E0D /* RMTileStreamSource.h */; };
@@ -216,13 +139,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2BEC606C0F8AC7B3008FB858 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B83E654A0E80E7A8001663B6 /* Proj4.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = Proj4;
-		};
 		38D8184F0F6F67B90034598B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B83E654A0E80E7A8001663B6 /* Proj4.xcodeproj */;
@@ -248,7 +164,6 @@
 		12F2031E0EBB65E9003D7B6B /* RMMapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapViewDelegate.h; sourceTree = "<group>"; };
 		17157D7F133BBAD800E28941 /* RMFoundationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMFoundationTests.h; sourceTree = "<group>"; };
 		17157D80133BBAD800E28941 /* RMFoundationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMFoundationTests.m; sourceTree = "<group>"; };
-		17157D87133BBC8300E28941 /* MapViewTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapViewTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17157D8D133BBC8300E28941 /* MapViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapViewTests-Info.plist"; sourceTree = "<group>"; };
 		17157D8F133BBC8300E28941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17157D91133BBC8300E28941 /* MapViewTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapViewTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -289,7 +204,6 @@
 		2B5BDCDA0F8C17A500848078 /* RunIPhoneUnitTest.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = RunIPhoneUnitTest.sh; path = GTM/RunIPhoneUnitTest.sh; sourceTree = "<group>"; };
 		2B8C8A230F8EB855002E8CF3 /* RouteMeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RouteMeTests.h; path = UnitTesting/RouteMeTests.h; sourceTree = "<group>"; };
 		2B8C8A240F8EB855002E8CF3 /* RouteMeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RouteMeTests.m; path = UnitTesting/RouteMeTests.m; sourceTree = "<group>"; };
-		2BF3078F0F8AC5C0007014EE /* RM Unit Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM Unit Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF307910F8AC5C0007014EE /* RM Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RM Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* MapView_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView_Prefix.pch; sourceTree = "<group>"; };
 		3866784C0F6B9B9200C56B17 /* MapView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapView.framework; path = build/MapView.framework; sourceTree = "<group>"; };
@@ -409,31 +323,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		17157D83133BBC8300E28941 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				17157D88133BBC8300E28941 /* UIKit.framework in Frameworks */,
-				17157D89133BBC8300E28941 /* Foundation.framework in Frameworks */,
-				17157D8A133BBC8300E28941 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BF3078D0F8AC5C0007014EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BEC60960F8ACBF1008FB858 /* libProj4.a in Frameworks */,
-				2BEC612D0F8ACC1E008FB858 /* CoreFoundation.framework in Frameworks */,
-				2BEC612E0F8ACC1E008FB858 /* CoreGraphics.framework in Frameworks */,
-				2BEC612F0F8ACC1E008FB858 /* CoreLocation.framework in Frameworks */,
-				2BEC61300F8ACC1F008FB858 /* Foundation.framework in Frameworks */,
-				2BEC61310F8ACC21008FB858 /* libsqlite3.dylib in Frameworks */,
-				2BEC61320F8ACC24008FB858 /* QuartzCore.framework in Frameworks */,
-				2BEC61330F8ACC25008FB858 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B8C9744F0E8A19B2007D16AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,9 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				3866784C0F6B9B9200C56B17 /* MapView.framework */,
-				2BF3078F0F8AC5C0007014EE /* RM Unit Tests.app */,
 				17F31EFA1331050A00122B16 /* libMapView.a */,
-				17157D87133BBC8300E28941 /* MapViewTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -903,43 +790,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		17157D86133BBC8300E28941 /* MapViewTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 17157D96133BBC8300E28941 /* Build configuration list for PBXNativeTarget "MapViewTests" */;
-			buildPhases = (
-				17157D82133BBC8300E28941 /* Sources */,
-				17157D83133BBC8300E28941 /* Frameworks */,
-				17157D84133BBC8300E28941 /* Resources */,
-				17157D85133BBC8300E28941 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MapViewTests;
-			productName = MapViewTests;
-			productReference = 17157D87133BBC8300E28941 /* MapViewTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
-		2BF3078E0F8AC5C0007014EE /* Unit Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BF307940F8AC5C1007014EE /* Build configuration list for PBXNativeTarget "Unit Tests" */;
-			buildPhases = (
-				2BF3078B0F8AC5C0007014EE /* Resources */,
-				2BF3078C0F8AC5C0007014EE /* Sources */,
-				2BF3078D0F8AC5C0007014EE /* Frameworks */,
-				2BF307960F8AC60C007014EE /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BEC606D0F8AC7B3008FB858 /* PBXTargetDependency */,
-			);
-			name = "Unit Tests";
-			productName = "RM Unit Tests";
-			productReference = 2BF3078F0F8AC5C0007014EE /* RM Unit Tests.app */;
-			productType = "com.apple.product-type.application";
-		};
 		B8C974130E8A19B2007D16AD /* MapView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8C974560E8A19B2007D16AD /* Build configuration list for PBXNativeTarget "MapView" */;
@@ -963,8 +813,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MapView" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -985,10 +838,7 @@
 			projectRoot = "";
 			targets = (
 				B8C974130E8A19B2007D16AD /* MapView */,
-				17157D86133BBC8300E28941 /* MapViewTests */,
 				386676D40F6B73AC00C56B17 /* MapView-framework */,
-				2B2BD43A0F79AA1B00B8B9A7 /* Doxygen-Documentation */,
-				2BF3078E0F8AC5C0007014EE /* Unit Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1003,66 +853,7 @@
 		};
 /* End PBXReferenceProxy section */
 
-/* Begin PBXResourcesBuildPhase section */
-		17157D84133BBC8300E28941 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				17157D90133BBC8300E28941 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BF3078B0F8AC5C0007014EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2B580E2C0F8D201200D495B2 /* marker-red.png in Resources */,
-				2B2BADD70FA3B45A00EE37AA /* marker-X.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXShellScriptBuildPhase section */
-		17157D85133BBC8300E28941 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		2B2BD4390F79AA1B00B8B9A7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# patterned after http://developer.apple.com/tools/creatingdocsetswithdoxygen.html\n#  Append the proper input/output directories and docset info to the config file.\n#  This works even though values are assigned higher up in the file. Easier than sed.\n\ncp $SOURCE_ROOT/routeme.doxygen $TEMP_DIR/doxygen.config\n\necho \"INPUT = $SOURCE_ROOT\" >> $TEMP_DIR/doxygen.config\necho \"OUTPUT_DIRECTORY = $SYMROOT/RouteMeDoxygen\" >> $TEMP_DIR/doxygen.config\necho \"GENERATE_DOCSET        = YES\" >> $TEMP_DIR/doxygen.config\necho \"DOCSET_BUNDLE_ID       = com.routeme.RouteMe\" >> $TEMP_DIR/doxygen.config\n\n#  Run doxygen on the updated config file.\n\n$DOXYGEN_PATH $TEMP_DIR/doxygen.config\n\nopen $SYMROOT/RouteMeDoxygen/html/index.html\n\nmake -C $TEMP_DIR/DoxygenDocs.docset/html install\n\nexit 0\n";
-		};
-		2BF307960F8AC60C007014EE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = $SOURCE_ROOT/GTM/RunIPhoneUnitTest.sh;
-		};
 		386676E00F6B73DA00C56B17 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1079,72 +870,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		17157D82133BBC8300E28941 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				17157D99133BBCEF00E28941 /* RMFoundationTests.m in Sources */,
-				17157D9A133BBD0500E28941 /* RMFoundation.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BF3078C0F8AC5C0007014EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BEC602C0F8AC6FC008FB858 /* FMDatabase.m in Sources */,
-				2BEC602D0F8AC6FE008FB858 /* FMDatabaseAdditions.m in Sources */,
-				2BEC602F0F8AC700008FB858 /* FMResultSet.m in Sources */,
-				2BEC60300F8AC70C008FB858 /* RMAbstractMercatorWebSource.m in Sources */,
-				2BEC60310F8AC70D008FB858 /* RMCachedTileSource.m in Sources */,
-				2BEC60330F8AC70F008FB858 /* RMConfiguration.m in Sources */,
-				2BEC60340F8AC712008FB858 /* RMCoreAnimationRenderer.m in Sources */,
-				2BEC60350F8AC713008FB858 /* RMDatabaseCache.m in Sources */,
-				2BEC60360F8AC715008FB858 /* RMFileTileImage.m in Sources */,
-				2BEC60380F8AC71A008FB858 /* RMFractalTileProjection.m in Sources */,
-				2BEC60390F8AC71C008FB858 /* RMGeoHash.m in Sources */,
-				2BEC603A0F8AC71D008FB858 /* RMLayerCollection.m in Sources */,
-				2BEC603B0F8AC71E008FB858 /* RMMapContents.m in Sources */,
-				2BEC603C0F8AC71F008FB858 /* RMMapLayer.m in Sources */,
-				2BEC603D0F8AC722008FB858 /* RMMapRenderer.m in Sources */,
-				2BEC603E0F8AC723008FB858 /* RMMapView.m in Sources */,
-				2BEC603F0F8AC724008FB858 /* RMMarker.m in Sources */,
-				2BEC60400F8AC725008FB858 /* RMMarkerManager.m in Sources */,
-				2BEC60430F8AC729008FB858 /* RMMemoryCache.m in Sources */,
-				2BEC60440F8AC729008FB858 /* RMMercatorToScreenProjection.m in Sources */,
-				2BEC60450F8AC72B008FB858 /* RMOpenAerialMapSource.m in Sources */,
-				2BEC60460F8AC72C008FB858 /* RMOpenStreetMapSource.m in Sources */,
-				2BEC60470F8AC72E008FB858 /* RMPath.m in Sources */,
-				2BEC60480F8AC72F008FB858 /* RMPixel.c in Sources */,
-				2BEC60490F8AC738008FB858 /* RMProjection.m in Sources */,
-				2BEC604A0F8AC739008FB858 /* RMTile.c in Sources */,
-				2BEC604B0F8AC73A008FB858 /* RMTileCache.m in Sources */,
-				2BEC604C0F8AC73C008FB858 /* RMTileCacheDAO.m in Sources */,
-				2BEC604E0F8AC73D008FB858 /* RMTileImage.m in Sources */,
-				2BEC604F0F8AC73E008FB858 /* RMTileImageSet.m in Sources */,
-				2BEC60500F8AC73F008FB858 /* RMTileLoader.m in Sources */,
-				2BEC60510F8AC740008FB858 /* RMTileProxy.m in Sources */,
-				2BEC60520F8AC741008FB858 /* RMTransform.m in Sources */,
-				2BEC60530F8AC742008FB858 /* RMVirtualEarthSource.m in Sources */,
-				2BEC60540F8AC744008FB858 /* RMWebTileImage.m in Sources */,
-				2BEC60550F8AC745008FB858 /* RMYahooMapSource.m in Sources */,
-				2B5BDCDB0F8C17A500848078 /* GTMCALayer+UnitTesting.m in Sources */,
-				2B5BDCDC0F8C17A500848078 /* GTMIPhoneUnitTestDelegate.m in Sources */,
-				2B5BDCDD0F8C17A500848078 /* GTMIPhoneUnitTestMain.m in Sources */,
-				2B5BDCDE0F8C17A500848078 /* GTMNSObject+UnitTesting.m in Sources */,
-				2B5BDCDF0F8C17A500848078 /* GTMSenTestCase.m in Sources */,
-				2B5BDCE00F8C17A500848078 /* GTMSystemVersion.m in Sources */,
-				2B5BDCE10F8C17A500848078 /* GTMUIKit+UnitTesting.m in Sources */,
-				2B8C8A260F8EB855002E8CF3 /* RouteMeTests.m in Sources */,
-				46B1C067117653930062018A /* GTMNSNumber+64Bit.m in Sources */,
-				46B1C075117653F10062018A /* GTMObjC2Runtime.m in Sources */,
-				25757F521291C8850083D504 /* RMCircle.m in Sources */,
-				2599740B12EB967600816331 /* RMSpatialCloudMapSource.m in Sources */,
-				DD55FD1612FB40E000B6FE24 /* RMMBTilesTileSource.m in Sources */,
-				17157D9B133BBD0700E28941 /* RMFoundation.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B8C974340E8A19B2007D16AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1205,11 +930,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2BEC606D0F8AC7B3008FB858 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Proj4;
-			targetProxy = 2BEC606C0F8AC7B3008FB858 /* PBXContainerItemProxy */;
-		};
 		B8C974140E8A19B2007D16AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Proj4;
@@ -1229,142 +949,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		17157D97133BBC8300E28941 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MapViewTests/MapViewTests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = "MapViewTests/MapViewTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		17157D98133BBC8300E28941 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MapViewTests/MapViewTests-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = "MapViewTests/MapViewTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
-		2B2BD43B0F79AA1C00B8B9A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = DoxygenDocumentation;
-			};
-			name = Debug;
-		};
-		2B2BD43C0F79AA1C00B8B9A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PRODUCT_NAME = DoxygenDocumentation;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		2BF307920F8AC5C0007014EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_SYMBOL_SEPARATION = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MapView_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
-				GCC_WARN_MISSING_PARENTHESES = NO;
-				GCC_WARN_SHADOW = NO;
-				GCC_WARN_SIGN_COMPARE = YES;
-				HEADER_SEARCH_PATHS = ../Proj4;
-				INFOPLIST_FILE = "RM Unit Tests-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = "RM Unit Tests";
-			};
-			name = Debug;
-		};
-		2BF307930F8AC5C0007014EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_SYMBOL_SEPARATION = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MapView_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "NS_BLOCK_ASSERTIONS=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
-				GCC_WARN_MISSING_PARENTHESES = NO;
-				GCC_WARN_SHADOW = NO;
-				GCC_WARN_SIGN_COMPARE = YES;
-				HEADER_SEARCH_PATHS = ../Proj4;
-				INFOPLIST_FILE = "RM Unit Tests-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = "RM Unit Tests";
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 		386676D50F6B73AD00C56B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1372,6 +956,7 @@
 				"ARCHS[arch=*]" = (
 					i386,
 					armv6,
+					armv7,
 				);
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1391,17 +976,78 @@
 				);
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = MapView;
 				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
+		7A557FB9159847830011A67C /* Ad-Hoc_Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_FAST_MATH = YES;
+				GCC_STRICT_ALIASING = YES;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_LDFLAGS = "";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../../**";
+			};
+			name = "Ad-Hoc_Distribution";
+		};
+		7A557FBA159847830011A67C /* Ad-Hoc_Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					armv6,
+				);
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MapView_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "NS_BLOCK_ASSERTIONS=1";
+				HEADER_SEARCH_PATHS = ../Proj4;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = MapView;
+				ZERO_LINK = NO;
+			};
+			name = "Ad-Hoc_Distribution";
+		};
+		7A557FBC159847830011A67C /* Ad-Hoc_Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "";
+				"ARCHS[arch=*]" = (
+					i386,
+					armv6,
+				);
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = MapView;
+				ZERO_LINK = NO;
+			};
+			name = "Ad-Hoc_Distribution";
+		};
 		B8C974570E8A19B2007D16AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1410,7 +1056,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				HEADER_SEARCH_PATHS = ../Proj4;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				PRODUCT_NAME = MapView;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
@@ -1420,15 +1065,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapView_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "NS_BLOCK_ASSERTIONS=1";
 				HEADER_SEARCH_PATHS = ../Proj4;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				PRODUCT_NAME = MapView;
 				ZERO_LINK = NO;
 			};
@@ -1438,7 +1085,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_FAST_MATH = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1452,10 +1100,12 @@
 					"-Wuninitialized",
 				);
 				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../../**";
 			};
 			name = Debug;
 		};
@@ -1463,7 +1113,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_FAST_MATH = YES;
 				GCC_STRICT_ALIASING = YES;
@@ -1472,47 +1123,23 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../../**";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		17157D96133BBC8300E28941 /* Build configuration list for PBXNativeTarget "MapViewTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				17157D97133BBC8300E28941 /* Debug */,
-				17157D98133BBC8300E28941 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2B2BD4400F79AA3200B8B9A7 /* Build configuration list for PBXAggregateTarget "Doxygen-Documentation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2B2BD43B0F79AA1C00B8B9A7 /* Debug */,
-				2B2BD43C0F79AA1C00B8B9A7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2BF307940F8AC5C1007014EE /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2BF307920F8AC5C0007014EE /* Debug */,
-				2BF307930F8AC5C0007014EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		386676DE0F6B73D000C56B17 /* Build configuration list for PBXAggregateTarget "MapView-framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				386676D50F6B73AD00C56B17 /* Debug */,
 				386676D60F6B73AD00C56B17 /* Release */,
+				7A557FBC159847830011A67C /* Ad-Hoc_Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1522,6 +1149,7 @@
 			buildConfigurations = (
 				B8C974570E8A19B2007D16AD /* Debug */,
 				B8C974580E8A19B2007D16AD /* Release */,
+				7A557FBA159847830011A67C /* Ad-Hoc_Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1531,6 +1159,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				7A557FB9159847830011A67C /* Ad-Hoc_Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
