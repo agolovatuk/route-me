@@ -56,6 +56,15 @@
 #pragma mark 
 #pragma mark Adding / Removing / Displaying Markers
 
+/// place the (newly created) marker onto the map at projected point and overlay position
+-(void) addMarker:(RMMarker*)marker atProjectedPoint:(RMProjectedPoint)projectedPoint atOverlayIndex:(unsigned)index
+{
+	[marker setAffineTransform:rotationTransform];
+	[marker setProjectedLocation:projectedPoint];
+	[marker setPosition:[[contents mercatorToScreenProjection] projectXYPoint:projectedPoint]];
+	[[contents overlay] insertSublayer:marker atIndex:index];
+}
+
 /// place the (new created) marker onto the map at projected point and take ownership of it
 - (void)addMarker:(RMMarker *)marker atProjectedPoint:(RMProjectedPoint)projectedPoint {
 
